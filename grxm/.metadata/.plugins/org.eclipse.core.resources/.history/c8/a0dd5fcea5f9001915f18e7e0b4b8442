@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class P7_1 {
+
+	private static Scanner a;
+	private static Scanner b;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int ak;
+		a = new Scanner(System.in);
+        System.out.print("Enter the number of students:");
+        int stuNum = a.nextInt();
+        int[] score = new int[100];
+        System.out.print("Enter " + stuNum + " scores:");
+        for(int i=0;i<stuNum;i++) {
+    	b = new Scanner(System.in);
+    	score[i] = b.nextInt();
+        if(score[i]>score[i+1]) {
+        	ak = score[i];
+        }else {
+        	ak = score[i+1];    	
+        }
+        System.out.println(ak);
+    }
+        
+	}
+
+}

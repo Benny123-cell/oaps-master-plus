@@ -1,0 +1,55 @@
+import java.util.Scanner;//Õ≥≈≈ÀºœÎ
+
+public class P7_3 {
+
+	private static Scanner a;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    a = new Scanner(System.in);
+    System.out.print("Enter the integers between 1 and 100:");
+    int[] goal = new int[1005];
+    int[] doal = new int[1005];
+	for(int i=0;;i++) {
+		goal[i] = a.nextInt();
+		if(goal[i]==0)
+			break;
+		doal[goal[i]]++;
+	}
+	for(int i=0;i<1005;i++) {
+		if(doal[i]==1)
+			System.out.println(i + " occurs " + doal[i] + " times");
+		else if(doal[i]>1)
+			System.out.println(i + " occurs " + doal[i] + " times");
+	}
+	}
+	}
+//    int[] ckk = new int[101];
+//    for(int i=0;i<=t100;i++) {
+//    	ckk[i] = a.nextInt();
+//    	if(ckk[i]==0)
+//    		break;
+//    }
+//    int count = 1;
+//    for(int i=0;i<ckk.length;i++) {
+//	   for(int j=i+1;j<ckk.length;j++) {
+//		   if(ckk[i]==ckk[j])
+//		   count++;
+//  }
+//  }
+//    for(int i=0;i<ckk.length;i++) 
+//    	System.out.println(ckk[i] + " occurs " + count + " times");
+//	}
+//}
+//    qaq(ckk.length,ckk[i],ckk[i+1]);
+//	}
+//   private static void qaq(int wc,int k,int u){
+//	   int count = 0;
+//   for(int i=0;i<wc;i++) {
+//	   for(int j=i+1;j<wc;j++) {
+//		   if(k==u)
+//		   count++;
+//   }
+//	   System.out.println(k + " occurs " + count + " times");
+//   }
+//   }
+//}

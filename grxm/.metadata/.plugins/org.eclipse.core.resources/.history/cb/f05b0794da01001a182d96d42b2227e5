@@ -1,0 +1,56 @@
+package size_estimating;
+import java.util.Scanner;
+
+public class size_estimating {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+	    System.out.println("请输入数字个数：");
+	    int n=input.nextInt();
+	    double[] data=new double[n];//为序列建立数组
+	    double log_sum=0;//ln(x)的和
+	    double log_avg=0;//ln(x)的平均数
+	    double log=0;//(ln(x)-avg)*(ln(x)-avg)的平方和
+	    double var=0;//variance
+	    double dev=0;//standard deviation
+	    double VS;//very small
+	    double S;//small
+	    double M;//medium
+	    double L;//large
+	    double VL;//very large
+	    
+	    System.out.println("请输入一组数据，并用逗号隔开：");
+	    
+	    //获取一组数据并存入数组
+		String inputString=input.next();
+		String stringArray[]=inputString.split(",");
+		for(int i=0;i<n;i++)
+		{
+		    data[i]=Double.parseDouble(stringArray[i]);
+		    log_sum=log_sum+Math.log(data[i]);		    
+		}
+		log_avg=log_sum/n;//求ln(xi)的平均数
+		
+		for(int i=0;i<n;i++)
+		{
+			//求(ln(x)-avg)*(ln(x)-avg)的平方和
+			log=log+(Math.log(data[i])-log_avg)*(Math.log(data[i])-log_avg);
+		}
+		var=log/(n-1);//求variance
+		dev=Math.sqrt(var);//求standard deviation
+		
+		VS=Math.exp(log_avg-2*dev);//求非常小的值
+		S=Math.exp(log_avg-dev);//求小的值
+		M=Math.exp(log_avg);//求中等的值
+		L=Math.exp(log_avg+dev);//求大的值
+		VL=Math.exp(log_avg+2*dev);//求非常大的值
+		
+		//输出
+        System.out.println("VS = "+VS);
+        System.out.println("S = "+S);
+        System.out.println("M = "+M);
+        System.out.println("L = "+L);
+        System.out.println("VL = "+VL);
+	}
+
+}
+

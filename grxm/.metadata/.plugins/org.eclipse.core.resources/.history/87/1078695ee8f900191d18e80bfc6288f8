@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class P7_1 {
+
+	private static Scanner a;
+	private static Scanner b;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		a = new Scanner(System.in);
+        System.out.print("Enter the number of students:");
+        int stuNum = a.nextInt();
+        int[] score = new int[100];
+        System.out.print("Enter " + stuNum + " scores:");
+        for(int i=0;i<stuNum;i++) {
+    	b = new Scanner(System.in);
+    	score[i] = b.nextInt();
+    	System.out.println("Student " + i + " score is " + score[i] + " and grade is " );
+        }
+        int max = score[0];
+        for(int i=1;i<stuNum;i++) {
+        if(score[i]>score[0]) 
+        	max = score[i];
+        }
+	}       
+        public static void cmd(int n,int max){
+        char bp = 'y';     
+       
+    	if(n>=max-10) {
+        	bp = 'A';
+        }else if(n>=max-20&&n<max-10) {
+        	bp = 'B';
+        }else if(n>=max-30&&n<max-20) {
+        	bp = 'C';
+        }else if(n>=max-40&&n<max-30) {
+        	bp = 'D';
+        }
+        }
+ }
+

@@ -1,0 +1,45 @@
+package com.LR;
+
+import java.text.DecimalFormat;
+import java.util.*;
+
+public class LR {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n;
+		double beita1,beita0,r,yk;
+		double sumsp1 = 0,sumsp2 = 0,sumsp12 = 0,sumsp1pf = 0,sumsp2pf = 0;
+		double sp1avg,sp2avg;
+		DecimalFormat df = new DecimalFormat("#.000");
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		System.out.print("Please tell me the value of the n: ");
+		n = input.nextInt();
+        double[] sp1 = new double[n];
+        double[] sp2 = new double[n];
+        System.out.print("Please enter the value of x: ");
+        for(int i=0;i<n;i++) {
+        	sp1[i] = input.nextDouble();
+        	sumsp1 = sumsp1 + sp1[i];
+        	sumsp1pf = sumsp1pf + sp1[i]*sp1[i];
+        }
+        sp1avg = sumsp1/n;
+        System.out.print("Please enter the value of y: ");
+        for(int j=0;j<n;j++) {
+        	sp2[j] = input.nextDouble();
+        	sumsp2 = sumsp2 + sp2[j];
+        	sumsp2pf = sumsp2pf + sp2[j]*sp2[j];
+        }
+        for(int i=0;i<n;i++) {
+        	sumsp12 = sumsp12 + sp1[i]*sp2[i];
+        }
+        sp2avg = sumsp2/n;
+        beita1 = (sumsp12 - n*sp1avg*sp2avg)/(sumsp1pf-n*sp1avg*sp1avg);
+        r = (n*sumsp12-sumsp1*sumsp2)/Math.sqrt((n*sumsp1pf-sumsp1*sumsp1)*(n*sumsp2pf-sumsp2*sumsp2));
+        beita0 = sp2avg - beita1 * sp1avg;
+        yk = beita0 + beita1 * 386;
+        System.out.println("The actual values: " + df.format(beita0) + " " + df.format(beita1) + " " + df.format(r) + " " + df.format(r*r) + " " + df.format(yk));
+	}
+
+}

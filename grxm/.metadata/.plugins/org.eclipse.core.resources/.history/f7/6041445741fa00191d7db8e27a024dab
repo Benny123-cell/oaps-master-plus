@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class P7_12 {
+    private static Scanner a;
+	public static void main(String[] args) {
+		int[] ppt = new int[10];
+		a = new Scanner(System.in);
+	System.out.println("Enter ten numbers:");
+    for(int i=0;i<10;i++) {
+    	ppt[i] = a.nextInt();
+    }
+    eliminateDuplicates(ppt);
+	}
+	public static Object[] eliminateDuplicates(int[] list){
+		List list1 = new ArrayList();
+		for(int i=0;i<list.length;i++) {
+			if(!list1.contains(list[i])) {
+				list1.add(list[i]);
+			}
+		}
+		Object[] newlist = list1.toArray();
+	    System.out.print("The distinct numbers are:" + newlist);
+	    return newlist;
+	}
+
+}

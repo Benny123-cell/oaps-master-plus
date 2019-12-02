@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class P7_3 {
+
+	private static Scanner a;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    a = new Scanner(System.in);
+    System.out.println("Enter the integers between 1 and 100:");
+    int[] ckk = new int[101];
+    for(int i=0;i<=100;i++) {
+    	ckk[i] = a.nextInt();
+    	if(ckk[i]==0)
+    		qaq(ckk.length,ckk[i],ckk[i+1]);
+    }
+	}
+   private static void qaq(int wc,int k,int u){
+	   int flag = 0;
+	   int value = 0;
+	   for(int i=0;i<wc;i++) {
+		   int n = 1;
+		   if(k==value&&flag==1) 
+			 continue;
+		   else {
+			   for(int j=i+1;j<wc;j++) {
+				   if(k==u)
+					   n++;
+				   if(n>1) {
+					   flag = 1;
+					   value = k;
+				   }
+					   
+			   }
+			  
+		   }
+		   System.out.println(k + " occurs " + n + " times ");
+	   }
+   }
+}
